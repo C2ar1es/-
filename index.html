@@ -9,96 +9,215 @@
 
 <style>
 
-html,body{
+*{
     margin:0;
     padding:0;
+    box-sizing:border-box;
+}
+
+
+html,body{
+
     width:100%;
     height:100%;
-    background:white;
+
+    background:#f7f7f5;
+
     overflow:hidden;
+
+    font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
 }
 
 
 body{
+
     display:flex;
     justify-content:center;
     align-items:center;
+
 }
+
 
 
 .container{
+
     width:100%;
     height:100%;
+
     display:flex;
+
+    flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
-    position:relative;
+
 }
 
 
-video{
-    width:100%;
-    max-height:100vh;
-    display:none;
+
+/* 产品名称 */
+
+.title{
+
+    font-size:14px;
+
+    letter-spacing:5px;
+
+    color:#777;
+
+    margin-bottom:50px;
+
 }
 
 
-.play-btn{
 
-    width:120px;
-    height:120px;
+/* 播放按钮 */
+
+.play{
+
+    width:110px;
+
+    height:110px;
 
     border-radius:50%;
 
-    background:#111;
-
-    color:white;
+    border:1px solid #222;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
-    font-size:40px;
+    position:relative;
 
     cursor:pointer;
 
+    transition:.3s;
+
 }
 
+
+
+.play:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* 三角 */
+
+.play span{
+
+    margin-left:6px;
+
+    width:0;
+
+    height:0;
+
+    border-top:14px solid transparent;
+
+    border-bottom:14px solid transparent;
+
+    border-left:22px solid #111;
+
+}
+
+
+
+/* 下方文字 */
 
 .text{
 
-    position:absolute;
+    margin-top:45px;
 
-    margin-top:180px;
+    font-size:12px;
 
-    font-size:16px;
+    letter-spacing:4px;
 
-    letter-spacing:2px;
-
-    color:#333;
+    color:#555;
 
 }
+
+
+
+/* 小线 */
+
+.line{
+
+    width:40px;
+
+    height:1px;
+
+    background:#999;
+
+    margin-top:25px;
+
+}
+
+
+
+video{
+
+    width:100%;
+
+    max-height:100vh;
+
+    display:none;
+
+}
+
 
 
 </style>
 
+
 </head>
+
 
 
 <body>
 
 
+
 <div class="container">
 
 
-<div id="play" class="play-btn">
-▶
+<div class="title">
+
+ROTATION MECHANISM
+
 </div>
 
 
-<div id="text" class="text">
-CLICK TO VIEW MOTION
+
+<div class="play" id="play">
+
+<span></span>
+
 </div>
+
+
+
+<div class="text">
+
+START EXPERIENCE
+
+</div>
+
+
+
+<div class="line"></div>
+
 
 
 <video id="video" loop muted playsinline>
@@ -108,30 +227,46 @@ CLICK TO VIEW MOTION
 </video>
 
 
+
 </div>
+
 
 
 <script>
 
 
-var btn=document.getElementById("play");
+var play=document.getElementById("play");
 
 var video=document.getElementById("video");
 
-var text=document.getElementById("text");
+var title=document.querySelector(".title");
+
+var text=document.querySelector(".text");
+
+var line=document.querySelector(".line");
 
 
-btn.onclick=function(){
 
-    btn.style.display="none";
+play.onclick=function(){
 
-    text.style.display="none";
 
-    video.style.display="block";
+play.style.display="none";
 
-    video.play();
+title.style.display="none";
 
-};
+text.style.display="none";
+
+line.style.display="none";
+
+
+video.style.display="block";
+
+
+video.play();
+
+
+}
+
 
 
 </script>
