@@ -23,6 +23,8 @@ html,body{
 
     background:#f7f7f5;
 
+    overflow:hidden;
+
 }
 
 
@@ -35,6 +37,7 @@ body{
     align-items:center;
 
 }
+
 
 
 .container{
@@ -51,23 +54,49 @@ body{
 
 
 
-/* 标题 */
+/* 产品名称区域 */
 
 .title{
 
-    font-size:13px;
+    text-align:center;
 
-    letter-spacing:6px;
-
-    color:#888;
+    color:#777;
 
     margin-bottom:55px;
+
+    letter-spacing:3px;
 
 }
 
 
 
-/* 自定义播放按钮 */
+.product-name{
+
+    font-size:22px;
+
+    letter-spacing:8px;
+
+    color:#222;
+
+    margin-bottom:14px;
+
+}
+
+
+
+.product-desc{
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    color:#888;
+
+}
+
+
+
+/* 播放按钮 */
 
 .play{
 
@@ -85,11 +114,13 @@ body{
 
     align-items:center;
 
+    cursor:pointer;
+
 }
 
 
 
-/* 三角 */
+/* 三角播放符号 */
 
 .play::after{
 
@@ -166,26 +197,39 @@ video{
 
 
 <div class="title">
-ROTATION MECHANISM
+
+    <div class="product-name">
+        AURA X
+    </div>
+
+    <div class="product-desc">
+        Modular Rotary Mechanical Keyboard
+    </div>
+
 </div>
+
 
 
 <div class="play" id="play"></div>
 
 
+
 <div class="text">
-START EXPERIENCE
+    START EXPERIENCE
 </div>
+
 
 
 <div class="line"></div>
 
 
+
 <video id="video" loop muted playsinline>
 
-<source src="animation.mp4" type="video/mp4">
+    <source src="animation.mp4" type="video/mp4">
 
 </video>
+
 
 
 </div>
@@ -199,27 +243,34 @@ var play=document.getElementById("play");
 
 var video=document.getElementById("video");
 
-var container=document.querySelector(".container");
+var title=document.querySelector(".title");
+
+var text=document.querySelector(".text");
+
+var line=document.querySelector(".line");
+
 
 
 play.onclick=function(){
 
 
-play.style.display="none";
+    play.style.display="none";
 
-document.querySelector(".title").style.display="none";
+    title.style.display="none";
 
-document.querySelector(".text").style.display="none";
+    text.style.display="none";
 
-document.querySelector(".line").style.display="none";
+    line.style.display="none";
 
 
-video.style.display="block";
+    video.style.display="block";
 
-video.play();
+
+    video.play();
 
 
 }
+
 
 
 </script>
